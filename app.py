@@ -14,11 +14,7 @@ with open(os.path.join('static', 'qa_data.json'), 'r') as file:
     intents = json.load(file)
 
 # Home route → Registration page
-@app.route('/')
-def registration():
-    return render_template('register.html')
 
-# Function to get response from chatbot logic
 def get_bot_response(user_input):
     user_input = user_input.lower()
 
@@ -31,7 +27,7 @@ def get_bot_response(user_input):
     return "I'm sorry, I don't understand that."
 
 # Main chatbot route
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     # Static image URLs
     images = {
